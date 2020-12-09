@@ -1,0 +1,12 @@
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+$theme-colors: (
+    "primary": #2a2c3d,
+    "danger": teal
+);
+
+$nav-tabs-border-width: 0px;
+
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
