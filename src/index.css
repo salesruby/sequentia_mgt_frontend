@@ -25,6 +25,14 @@ body {
   color: #ef7c15
 }
 
+.show-on-screen-width-1250 {
+  display: none !important;
+}
+
+.show-on-screen-width-600 {
+  display: none !important;
+}
+
 .black-box {
   position: absolute;
   width: 50vw;
@@ -96,9 +104,19 @@ div.header p {
   padding: 2rem 1rem
 }
 
+.sr-module {
+  display: flex;
+  align-items: center;
+}
+.sr-module button{
+  margin-right: 0;
+  padding: 0;
+  font-size: 1.1rem
+}
 .sr-module h2{
   font-size: 1.5rem;
-  margin-right: 1rem; 
+  margin-right: 1rem;
+  margin-bottom: 0; 
 }
 
 .sr-user-avatar {
@@ -160,6 +178,11 @@ div.header p {
   margin-right: 1rem
 }
 
+.sidebar-header{
+  display: none;
+
+}
+
 .tags{
   display: flex;
   justify-content: space-between;
@@ -181,6 +204,13 @@ div.header p {
   border: 0px;
   margin-right: 1rem;
 }
+
+.search{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 
 /* Table */
 .table-section{
@@ -224,11 +254,15 @@ div.header p {
 }
 
 .record-status .table-icon{
-  font-size: .7rem;
+  font-size: 1.1rem;
+}
+
+.table-fa-circle-icon{
+  font-size: .8rem !important;
 }
 
 .table-icon {
-  padding-right: .2rem
+  padding: 0 .2rem
 }
 
 .table-icon.resolved {
@@ -253,14 +287,22 @@ div.header p {
 
 
 
-@media only screen and (max-device-width: 689px) {
+@media only screen and (max-width: 689px) {
   .form-box {
     padding: 1rem;
     width: 18rem;
   }
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-width: 600px) {
+  .show-on-screen-width-600 {
+    display: block !important;
+  }
+
+  .hide-on-screen-width-600 {
+    display: none !important;
+  }
+
   .page-title h2{
     font-size: 1.1rem;
   }
@@ -270,8 +312,48 @@ div.header p {
   }
 
   .search{
-    font-size: .8rem
+    font-size: .8rem;
   }
+
+  .search input.hide {
+    display:none;
+    animation-name: fadeOutOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
+  }
+
+  .page-title.hide{
+    display: none;
+    animation-name: fadeOutOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
+  }
+
+  .search input.show {
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .5s;
+  }
+
+  .search button{
+    background-color: #FCFCFF;
+    color: #212529;
+    border: 0px #FCFCFF
+  }
+
+  .search button:hover, .search button:focus, .search button:active{
+    border: 0px #FCFCFF !important;
+    color: #212529 !important;
+    background-color: #FCFCFF !important;
+    outline: none !important;
+    box-shadow: 0 0 0 0 #FCFCFF !important;
+  }
+
+
+  
 
   .hamburger-btn{
     width: 3rem;
@@ -305,9 +387,17 @@ div.header p {
     margin-right: 0;
     margin-bottom: .2rem
   }
+
+  table .MuiIconButton-root {
+    padding: 0 12px !important;
+    /* font-size: 1.5rem !important; */
+}
 }
 
-@media only screen and (max-device-width: 1250px){
+@media only screen and (max-width: 1250px){
+  .show-on-screen-width-1250 {
+    display: block !important;
+  }
   /* Sidebar */
   .sidebar {
     position: fixed;
@@ -319,9 +409,22 @@ div.header p {
     top: 0;
     width: 70%;
     max-width: 300px;
-    background-color: #f0f0f0;
+    background-color: #212529f6;
+    color: #fff;
     height: 100vh;
-    z-index: 2
+    z-index: 2;
+  }
+
+  .sidebar-header{
+    background-color: #212529f6;
+    height: 4rem;
+    padding: 2rem 1rem;
+    box-shadow: 0 0 .2rem 0  #FCFCFF !important;
+    border: 0 0 .2rem 0 solid #fff;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .backdrop{
@@ -345,14 +448,37 @@ div.header p {
   }
 
   .sidebar-nav {
-    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     z-index: 3;
+    color: #fff
   }
 
+  .nav .nav-item .nav-link{
+    color: #fff !important
+  }
+
+  .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    background-color: #151e27 !important;
+    border-color: #dee2e6 #dee2e6 #fff;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: #151e279a !important;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
   @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutOpacity {
     0% {
       opacity: 0;
     }

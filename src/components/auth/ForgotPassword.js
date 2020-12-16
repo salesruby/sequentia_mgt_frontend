@@ -1,6 +1,6 @@
 import React from 'react'
 import {Form, Button} from 'react-bootstrap'
-import AuthHeader from '../helpers/functions/HelperFunctions'
+import {AuthHeader} from '../helpers/components/dynamicComponents'
 import AuthLayout from '../layouts/AuthLayout';
 
 const ForgotPassword = () => {
