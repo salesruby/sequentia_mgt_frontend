@@ -10,7 +10,7 @@ import {
   faTrash,
   faClock,
   faEllipsisV,
-} from "@fortawesome/free-regular-svg-icons";
+} from "@fortawesome/free-solid-svg-icons";
 import { Button, Table, Form, Col, Modal } from "react-bootstrap";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";

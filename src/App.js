@@ -6,7 +6,7 @@ import Register from "./components/auth/Register";
 import ForgotPassword from "./components/auth/ForgotPassword";
 import ResetPassword from "./components/auth/ResetPassword";
 import Appointments from "./components/pages/Appointments";
-import RequestDemo from "./components/pages/RequestDemo";
+import DemoRequests from "./components/pages/DemoRequests";
 import BugReport from "./components/pages/BugReport";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
 
         {/* Pages Routes */}
         <Route path="/appointments" component={Appointments} />
-        <Route path="/request-demo" component={RequestDemo} />
+        <Route path="/demo-requests" component={DemoRequests} />
         <Route path="/bugs" component={BugReport} />
       </Router>
     </div>

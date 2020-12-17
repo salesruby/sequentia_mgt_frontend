@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
 
 import { AppNav } from "../helpers/components/dynamicComponents";
+
+const apiStatus = useSelector((state) => state.apiStatus);
+const { loading, error } = apiStatus;
 
 const AdminLayout = (props) => {
   const NavLinks = [
@@ -11,8 +15,8 @@ const AdminLayout = (props) => {
       Text: "Appointmnet Management",
     },
     {
-      href: "/request-demo",
-      Text: "Request Demo",
+      href: "/demo-requests",
+      Text: "Demo Requests",
     },
     {
       href: "/bugs",
@@ -31,7 +35,11 @@ const AdminLayout = (props) => {
     userAvatar: "/images/user-avatar.png",
     name: "hannah johnson inya",
   };
-  return (
+  return loading ? (
+    <div>API Loading...</div>
+  ) : error ? (
+    <div>{error}</div>
+  ) : (
     <Container fluid>
       <AppNav Logo={<h2>SMS</h2>} NavLinks={NavLinks} user={user} />
       {props.children}

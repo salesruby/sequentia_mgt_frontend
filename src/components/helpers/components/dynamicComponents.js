@@ -3,38 +3,11 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAlignLeft,
-  faUpload,
-  faPlusCircle,
-  faCircle,
-  faEdit,
-  faTrash,
   faTimes,
-  faClock,
   faSearch,
   faArrowLeft,
-  faEllipsisV,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  Container,
-  Nav,
-  Button,
-  Table,
-  Form,
-  Col,
-  Modal,
-  InputGroup,
-  FormControl,
-} from "react-bootstrap";
-import "date-fns";
-import DateFnsUtils from "@date-io/date-fns";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-  KeyboardTimePicker,
-} from "@material-ui/pickers";
-import IconButton from "@material-ui/core/IconButton";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
+import { Nav, Button, InputGroup, FormControl } from "react-bootstrap";
 
 export const AuthHeader = (props) => {
   return (
@@ -87,11 +60,19 @@ export const AppNav = (props) => {
             {props.Logo && props.Logo}
             <FontAwesomeIcon onClick={handleDrawerClose} icon={faArrowLeft} />
           </div>
-          <Nav className="sidebar-nav" variant="tabs" defaultActiveKey="#0">
+          <Nav
+            className="sidebar-nav"
+            variant="tabs"
+            defaultActiveKey={props.NavLinks[0].href}
+          >
             {props.NavLinks.map((link, index) => {
               return (
                 <Nav.Item key={index}>
-                  <Nav.Link href={link.href + index}>{link.Text}</Nav.Link>
+                  <Nav.Link>
+                    <Link className="nav-link" to={link.href}>
+                      {link.Text}
+                    </Link>
+                  </Nav.Link>
                 </Nav.Item>
               );
             })}
