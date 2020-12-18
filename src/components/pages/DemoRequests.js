@@ -184,7 +184,7 @@ const DemoRequests = () => {
                           <FontAwesomeIcon
                             className="table-icon danger"
                             icon={faTrash}
-                            size="md"
+                            size="sm"
                           />{" "}
                           delete
                         </MenuItem>

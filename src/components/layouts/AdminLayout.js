@@ -5,10 +5,13 @@ import { Container } from "react-bootstrap";
 
 import { AppNav } from "../helpers/components/dynamicComponents";
 
+
+
+const AdminLayout = (props) => {
+  
 const apiStatus = useSelector((state) => state.apiStatus);
 const { loading, error } = apiStatus;
 
-const AdminLayout = (props) => {
   const NavLinks = [
     {
       href: "/appointments",
